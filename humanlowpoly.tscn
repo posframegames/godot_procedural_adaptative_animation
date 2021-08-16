@@ -1,0 +1,106 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://models/humanlowpoly.dae" type="PackedScene" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.682353, 0.560784, 0.47451, 1 )
+
+[node name="humanlowpoly" instance=ExtResource( 1 )]
+
+[node name="humanlowpoly-male1591" parent="humanlowpoly/Skeleton" index="0"]
+material/0 = SubResource( 1 )
+
+[node name="ba_foot_r" type="BoneAttachment" parent="humanlowpoly/Skeleton" index="1"]
+transform = Transform( 0.990288, -0.139031, 0, 0.139031, 0.990288, 0, 0, 0, 1, -0.143517, -0.0500906, -0.0715691 )
+bone_name = "foot_r"
+
+[node name="foot_r1" type="Position3D" parent="humanlowpoly/Skeleton/ba_foot_r" index="0"]
+transform = Transform( 1, -1.11759e-08, -2.98023e-08, -2.14204e-08, 1, 2.98023e-08, 2.79397e-08, 1.49012e-07, 1, 0.00873689, 0.080351, 0.000636317 )
+
+[node name="foot_r2" type="Position3D" parent="humanlowpoly/Skeleton/ba_foot_r" index="1"]
+transform = Transform( 1, -1.11759e-08, -3.72529e-08, -2.6077e-08, 1, 2.98023e-08, 3.72529e-08, 1.49012e-07, 1, 0.00180148, -0.0181536, -0.196153 )
+
+[node name="foot_r3" type="Position3D" parent="humanlowpoly/Skeleton/ba_foot_r" index="2"]
+transform = Transform( 1, -1.11759e-08, -7.63685e-08, -4.19095e-08, 1, 2.98023e-08, 9.68575e-08, 1.49012e-07, 1, -0.0298836, 0.0467275, -0.0750518 )
+
+[node name="foot_r4" type="Position3D" parent="humanlowpoly/Skeleton/ba_foot_r" index="3"]
+transform = Transform( 1, -1.11759e-08, -8.19564e-08, -5.68107e-08, 1, 2.98023e-08, 1.08033e-07, 1.49012e-07, 1, 0.0369589, 0.0394507, -0.0737672 )
+
+[node name="ba_foot_l" type="BoneAttachment" parent="humanlowpoly/Skeleton" index="2"]
+transform = Transform( 0.990288, 0.139031, 0, -0.139031, 0.990288, 0, 0, 0, 1, 0.143517, -0.0500906, -0.0715691 )
+bone_name = "foot_l"
+
+[node name="foot_l1" type="Position3D" parent="humanlowpoly/Skeleton/ba_foot_l" index="0"]
+transform = Transform( 1, -1.11759e-08, -2.98023e-08, -2.14204e-08, 1, 2.98023e-08, 2.79397e-08, 1.49012e-07, 1, 0.00873689, 0.080351, 0.000636317 )
+
+[node name="foot_l2" type="Position3D" parent="humanlowpoly/Skeleton/ba_foot_l" index="1"]
+transform = Transform( 1, -1.11759e-08, -3.72529e-08, -2.6077e-08, 1, 2.98023e-08, 3.72529e-08, 1.49012e-07, 1, 0.00180148, -0.0181536, -0.196153 )
+
+[node name="foot_l3" type="Position3D" parent="humanlowpoly/Skeleton/ba_foot_l" index="2"]
+transform = Transform( 1, 4.19095e-08, -9.68576e-08, -4.19095e-08, 1, -1.49012e-07, 9.68575e-08, 1.49012e-07, 1, -0.0298836, 0.0467275, -0.0750518 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="foot_l4" type="Position3D" parent="humanlowpoly/Skeleton/ba_foot_l" index="3"]
+transform = Transform( 1, 5.68107e-08, -1.08033e-07, -5.68107e-08, 1, -1.49012e-07, 1.08033e-07, 1.49012e-07, 1, 0.0369589, 0.0394507, -0.0737672 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="IK_foot_r" type="SkeletonIK" parent="humanlowpoly/Skeleton" index="3"]
+process_priority = 1
+root_bone = "thigh_r"
+tip_bone = "foot_r"
+use_magnet = true
+magnet = Vector3( -0.2, 2, -2 )
+target_node = NodePath("../../../pos_foot_r1/pos")
+min_distance = 0.001
+max_iterations = 100
+
+[node name="IK_foot_l" type="SkeletonIK" parent="humanlowpoly/Skeleton" index="4"]
+process_priority = 1
+root_bone = "thigh_l"
+tip_bone = "foot_l"
+use_magnet = true
+magnet = Vector3( 0.2, 2, -2 )
+target_node = NodePath("../../../pos_foot_l1/pos")
+min_distance = 0.001
+max_iterations = 100
+
+[node name="pos_foot_r1" type="Position3D" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.139842, 0.0103063, 0 )
+
+[node name="pos" type="Position3D" parent="pos_foot_r1" index="0"]
+transform = Transform( 0.992546, -0.121869, 5.32708e-09, 0, -4.37114e-08, -1, 0.121869, 0.992546, -4.33856e-08, 0, 0, -0.045 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="tip" type="Position3D" parent="pos_foot_r1" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07, 0.127 )
+
+[node name="heel" type="Position3D" parent="pos_foot_r1" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07, -0.094 )
+
+[node name="pos_foot_l1" type="Position3D" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14, 0.0183585, 0 )
+
+[node name="pos" type="Position3D" parent="pos_foot_l1" index="0"]
+transform = Transform( 0.992546, 0.121869, -5.32708e-09, 0, -4.37114e-08, -1, -0.121869, 0.992546, -4.33856e-08, 0, 0, -0.045 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="tip" type="Position3D" parent="pos_foot_l1" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07, 0.127 )
+
+[node name="heel" type="Position3D" parent="pos_foot_l1" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07, -0.094 )
+
+[node name="Position3D" type="Position3D" parent="." index="4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.945281, 0 )
+
+[node name="ray_v" type="RayCast" parent="." index="5"]
+enabled = true
+cast_to = Vector3( 0, -4, 0 )

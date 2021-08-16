@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://humanlowpoly.tscn" type="PackedScene" id=1]
+[ext_resource path="res://char.gd" type="Script" id=2]
+
+[node name="char" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="humanlowpoly" parent="." instance=ExtResource( 1 )]
+
+[node name="slider_pass_speed" type="HSlider" parent="."]
+margin_left = 784.0
+margin_top = 17.0
+margin_right = 1007.0
+margin_bottom = 33.0
+value = 65.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slider_pass_speed"]
+margin_left = -77.0
+margin_right = -4.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "pass speed"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="slider_pass_length" type="HSlider" parent="."]
+margin_left = 784.0
+margin_top = 41.0
+margin_right = 1007.0
+margin_bottom = 57.0
+max_value = 99.0
+value = 62.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="slider_pass_length"]
+margin_left = -77.0
+margin_right = -4.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "pass length"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="value_changed" from="slider_pass_speed" to="." method="_on_slider_pass_speed_value_changed"]
+[connection signal="value_changed" from="slider_pass_length" to="." method="_on_slider_pass_speed2_value_changed"]
